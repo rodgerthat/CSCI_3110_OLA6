@@ -1,3 +1,8 @@
+/*
+ * Author: Norris, Joel R.
+ * Date: Apr 06, 2017
+ * File: BST.h
+ */
 #pragma once
 
 #include <unordered_map>
@@ -17,14 +22,16 @@ class BST
 {
 public:
 	BST();
+
 	~BST();
+
+	void in_order_traversal();
+	void search_student(string m_number);
+	void insert_student(string m_number, Student& student);
+	void delete_student(string m_number);
 
 private:
 	unordered_map< string, TreeNode > bst;
-	void in_order_traversal();
-	void search_student(string m_number);
-	void insert_student(Student& student);
-	void delete_student(string m_number);
-
+	string rootPtr;
 };
 
