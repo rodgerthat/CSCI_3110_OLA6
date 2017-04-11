@@ -27,7 +27,7 @@ public:
 
 	void in_order_traversal();
 	void search_student(string m_number);
-	void insert_student(string m_number, Student& student);
+	void insert_student(string m_number, TreeNode& treenode);
 	void delete_student(string m_number);
 
 private:

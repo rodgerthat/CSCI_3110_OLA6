@@ -23,31 +23,31 @@ void BST::search_student(string m_number)
 {
 }
 
-void BST::insert_student(string m_number, Student & student)
+// insert_student
+void BST::insert_student(string m_number, TreeNode& treenode)
 {
-	// create new TreeNode
-	TreeNode* treenode;
+	// here the m_number is serving as our "rootPointer"
 
 	// add to hashmap
 	// if the map is empty set the root pointer
 	if (bst.empty()) {
-		rootPtr = student.get_m_number();
-		bst.insert(student.get_m_number(), treenode);
+		rootPtr = treenode.item.get_m_number();
+		bst.insert({ treenode.item.get_m_number(), treenode });
 	}
+	
 
 	if (m_number == "M00000000") {
 		// insert new node
-		treenode->item = student;
-		treenode->LC_m_number = "M00000000";
-		treenode->RC_m_number = "M00000000";
-		bst.insert(student.get_m_number(), treenode);
+		treenode.LC_m_number = "M00000000";
+		treenode.RC_m_number = "M00000000";
+		bst.insert({ treenode.item.get_m_number(), treenode });
 	}
 
-	if (m_number < student.get_m_number()) {
-		insert_student( bst[m_number].RC_m_number, student);
+	if (m_number < treenode.item.get_m_number()) {
+		insert_student( bst[m_number].RC_m_number, treenode);
 	} else {
-	//if (m_number > student.get_m_number()) {
-		insert_student(bst[m_number].LC_m_number, student);
+	//if (m_number > treenode.item.get_m_number()) {
+		insert_student(bst[m_number].LC_m_number, treenode);
 	}
 
 

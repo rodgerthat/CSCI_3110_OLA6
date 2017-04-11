@@ -74,9 +74,15 @@ void populate_bst(const char *filename, const char *delimeter, BST& bst) {
 			
 		}
 
-		// create new student object and insert it in the BST
+		// create new student object 
 		Student* student = new Student(m_no, phone_no, addy);
-		bst.insert_student(student->get_m_number(), *student);
+		// create new TreeNode and insert it into the BST
+		TreeNode* treenode;
+		treenode->item = *student;
+		treenode->LC_m_number = "M00000000";
+		treenode->RC_m_number = "M00000000";
+
+		bst.insert_student(student->get_m_number(), *treenode);
 		//cout << m_no << " " << phone_no << " " << addy << " " << endl;
 
 	}
